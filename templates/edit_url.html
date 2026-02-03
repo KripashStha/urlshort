@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Edit URL</h4>
+                </div>
+                <div class="card-body">
+                    <p><strong>Short URL:</strong> {{ url_obj.short_url }}</p>
+                    <p><strong>Current clicks:</strong> {{ url_obj.click_count }}</p>
+                    <hr>
+                    
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-group mb-3">
+                            <label>Original URL</label>
+                            {{ form.original_url }}
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <a href="{% url 'my_urls' %}" class="btn btn-secondary">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

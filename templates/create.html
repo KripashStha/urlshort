@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Create Short URL</h4>
+                </div>
+                <div class="card-body">
+                    
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                    {% endfor %}
+                    {% endif %}
+                    
+                    <form method="POST" action="{% url 'create' %}">
+                        {% csrf_token %}
+                        <div class="form-group mb-3">
+                            <label>Enter your URL:</label>
+                            {{ form.original_url }}
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Custom short code (optional):</label>
+                            {{ form.custom_code }}
+                            <small class="text-muted">Only letters and numbers. Leave empty for auto-generated code.</small>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Expiration time:</label>
+                            {{ form.expiration }}
+                            <small class="text-muted">URL will stop working after this time.</small>
+                        </div>
+                        <button type="submit" class="btn btn-success">Shorten URL</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

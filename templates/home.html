@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="jumbotron text-center">
+        <h1 class="display-4">URL Shortener</h1>
+        <p class="lead">Make your long URLs short and easy to share!</p>
+        <hr class="my-4">
+        
+        {% if user.is_authenticated %}
+        <p>Welcome back, {{ user.username }}!</p>
+        <a href="{% url 'create' %}" class="btn btn-primary btn-lg">Create Short URL</a>
+        <a href="{% url 'my_urls' %}" class="btn btn-secondary btn-lg">View My URLs</a>
+        {% else %}
+        <p>Please login or register to start shortening URLs.</p>
+        <a href="{% url 'login' %}" class="btn btn-primary btn-lg">Login</a>
+        <a href="{% url 'register' %}" class="btn btn-success btn-lg">Register</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

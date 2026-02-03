@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-success">
+                <div class="card-header bg-success text-white">
+                    <h4>URL Created Successfully!</h4>
+                </div>
+                <div class="card-body text-center">
+                    <p>Your short URL is:</p>
+                    <h3><a href="/{{ chars }}/">localhost:8000/{{ chars }}/</a></h3>
+                    <hr>
+                    <a href="{% url 'create' %}" class="btn btn-primary">Create Another</a>
+                    <a href="{% url 'my_urls' %}" class="btn btn-secondary">View My URLs</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

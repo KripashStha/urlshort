@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Redirecting...</h4>
+                </div>
+                <div class="card-body text-center">
+                    <p><strong>Short URL:</strong> {{ obj.short_url }}</p>
+                    <p><strong>Original URL:</strong> {{ obj.original_url }}</p>
+                    <hr>
+                    <a href="{{ obj.original_url }}" class="btn btn-primary btn-lg">Go to Website</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
