@@ -2,6 +2,10 @@
 
 A simple URL shortener web application built with Django. Users can create short links, track clicks, and manage their URLs.
 
+# Hosted at:
+
+kripash.pythonanywhere.com
+
 ## Features
 
 - User registration and login
